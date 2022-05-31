@@ -1,0 +1,10 @@
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Processing\bin\Debug\netcoreapp3.1\RowdyFactor.Processing.deps.json
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Processing\bin\Debug\netcoreapp3.1\RowdyFactor.Processing.dll
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Processing\bin\Debug\netcoreapp3.1\RowdyFactor.Processing.pdb
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Processing\obj\Debug\netcoreapp3.1\RowdyFactor.Processing.csproj.AssemblyReference.cache
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Processing\obj\Debug\netcoreapp3.1\RowdyFactor.Processing.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Processing\obj\Debug\netcoreapp3.1\RowdyFactor.Processing.AssemblyInfoInputs.cache
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Processing\obj\Debug\netcoreapp3.1\RowdyFactor.Processing.AssemblyInfo.cs
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Processing\obj\Debug\netcoreapp3.1\RowdyFactor.Processing.csproj.CoreCompileInputs.cache
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Processing\obj\Debug\netcoreapp3.1\RowdyFactor.Processing.dll
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Processing\obj\Debug\netcoreapp3.1\RowdyFactor.Processing.pdb

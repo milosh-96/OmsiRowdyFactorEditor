@@ -1,0 +1,17 @@
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Console\bin\Debug\netcoreapp3.1\RowdyFactor.ConsoleApp.exe
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Console\bin\Debug\netcoreapp3.1\RowdyFactor.ConsoleApp.deps.json
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Console\bin\Debug\netcoreapp3.1\RowdyFactor.ConsoleApp.runtimeconfig.json
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Console\bin\Debug\netcoreapp3.1\RowdyFactor.ConsoleApp.runtimeconfig.dev.json
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Console\bin\Debug\netcoreapp3.1\RowdyFactor.ConsoleApp.dll
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Console\bin\Debug\netcoreapp3.1\RowdyFactor.ConsoleApp.pdb
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Console\bin\Debug\netcoreapp3.1\RowdyFactor.Processing.dll
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Console\bin\Debug\netcoreapp3.1\RowdyFactor.Processing.pdb
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Console\obj\Debug\netcoreapp3.1\RowdyFactor.ConsoleApp.csproj.AssemblyReference.cache
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Console\obj\Debug\netcoreapp3.1\RowdyFactor.ConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Console\obj\Debug\netcoreapp3.1\RowdyFactor.ConsoleApp.AssemblyInfoInputs.cache
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Console\obj\Debug\netcoreapp3.1\RowdyFactor.ConsoleApp.AssemblyInfo.cs
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Console\obj\Debug\netcoreapp3.1\RowdyFactor.ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Console\obj\Debug\netcoreapp3.1\RowdyFactor.ConsoleApp.csproj.CopyComplete
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Console\obj\Debug\netcoreapp3.1\RowdyFactor.ConsoleApp.dll
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Console\obj\Debug\netcoreapp3.1\RowdyFactor.ConsoleApp.pdb
+C:\Users\quest\source\repos\RowdyFactor\RowdyFactor.Console\obj\Debug\netcoreapp3.1\RowdyFactor.ConsoleApp.genruntimeconfig.cache
