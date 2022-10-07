@@ -46,7 +46,7 @@ namespace RowdyFactor.Processing
                 lines[rowdyIndex.Value + 1] = vehicle.RowdyFactor.From.ToString();
                 lines[rowdyIndex.Value + 2] = vehicle.RowdyFactor.To.ToString();
 
-                File.WriteAllLines(vehicle.FilePath, lines,System.Text.Encoding.UTF8);
+                File.WriteAllLines(vehicle.FilePath, lines,System.Text.Encoding.GetEncoding("iso-8859-1"));
             }
             else
             {
@@ -73,7 +73,7 @@ namespace RowdyFactor.Processing
 
         private string[] GetFileContents(string filePath)
         {
-            string[] lines = System.IO.File.ReadAllLines(filePath);
+            string[] lines = System.IO.File.ReadAllLines(filePath,System.Text.Encoding.GetEncoding("iso-8859-1"));
             return lines;
         }
     }

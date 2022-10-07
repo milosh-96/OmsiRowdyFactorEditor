@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows10.0.17763.0</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+    <Company>M96 - Miloš Jovanović</Company>
+    <Product>Rowdy Factor Editor for OMSI 2</Product>
+    <Description>Simple program for editing rowdy factor values of OMSI 2 AI vehicles.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+        <ProjectReference Include="..\RowdyFactor.Processing\RowdyFactor.Processing.csproj" />
+  </ItemGroup>
+</Project>

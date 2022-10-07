@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RowdyFactor.Processing", "RowdyFactor.Processing\RowdyFactor.Processing.csproj", "{F248C9BC-80D8-4A65-BCB6-2A7B16AF7EEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RowdyFactor.Processing", "RowdyFactor.Processing\RowdyFactor.Processing.csproj", "{F248C9BC-80D8-4A65-BCB6-2A7B16AF7EEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RowdyFactor.ConsoleApp", "RowdyFactor.Console\RowdyFactor.ConsoleApp.csproj", "{8118D334-6EC6-45F2-9ACE-A31601B587F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RowdyFactor.ConsoleApp", "RowdyFactor.Console\RowdyFactor.ConsoleApp.csproj", "{8118D334-6EC6-45F2-9ACE-A31601B587F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RowdyFactor.WinForms", "RowdyFactor.WinForms\RowdyFactor.WinForms.csproj", "{3DB93C7D-8B4F-4B93-8021-29567B17A2C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8118D334-6EC6-45F2-9ACE-A31601B587F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8118D334-6EC6-45F2-9ACE-A31601B587F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8118D334-6EC6-45F2-9ACE-A31601B587F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DB93C7D-8B4F-4B93-8021-29567B17A2C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DB93C7D-8B4F-4B93-8021-29567B17A2C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DB93C7D-8B4F-4B93-8021-29567B17A2C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DB93C7D-8B4F-4B93-8021-29567B17A2C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
