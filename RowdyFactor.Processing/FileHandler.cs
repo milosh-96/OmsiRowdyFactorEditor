@@ -12,7 +12,15 @@ namespace RowdyFactor.Processing
             OmsiVehicle vehicle = new OmsiVehicle() { FilePath=filePath};
             if(GetRowdyFactorIndex(lines) != null)
             {
-                vehicle.RowdyFactor = GetRowdyFactor(lines);
+                OmsiRowdyFactor rowdyFactor = GetRowdyFactor(lines);
+                if (rowdyFactor != null)
+                {
+                    vehicle.RowdyFactor = GetRowdyFactor(lines);
+                }
+                else
+                {
+                    vehicle.InvalidVehicle = true;
+                }
             } 
             else
             {
