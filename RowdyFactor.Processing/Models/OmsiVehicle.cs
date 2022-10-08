@@ -9,7 +9,8 @@ namespace RowdyFactor.Processing.Models
         public string FilePath { get; set; }
         public OmsiVehicleName Name { get; set; } = new OmsiVehicleName();
         public OmsiRowdyFactor RowdyFactor { get; set; } = null;
-       
+
+        public bool InvalidVehicle { get; set; } = false;
 
     }
     public class OmsiRowdyFactor {

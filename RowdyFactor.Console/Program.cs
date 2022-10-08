@@ -19,30 +19,33 @@ namespace RowdyFactor.ConsoleApp
             string map = Console.ReadLine().Trim();
 
         
-            List<string> vehiclesPaths = AiListsParser.ExtractAiGroup(
-                "NormalCars", 
+            List<string> vehiclesPaths = AiListsParser.ExtractAllVehicles(
                 File.ReadAllLines(omsiVehiclesPath + "/maps/" + map + "/ailists.cfg")
                 );
 
             List<OmsiVehicle> vehicles = new List<OmsiVehicle>();
             foreach (string vehiclePath in vehiclesPaths) {
                 OmsiVehicle vehicle = new FileHandler().Process(omsiVehiclesPath+vehiclePath);
-           
-                vehicles.Add(vehicle);
 
-                string formatPattern = "{0}:{1}";
-                if (!String.IsNullOrEmpty(vehicle.Name.CarType))
+                if (!vehicle.InvalidVehicle)
                 {
-                    formatPattern = formatPattern += " ({2})";
-                }
-                Console.WriteLine("Vehicle file:" + vehiclePath);
-                Console.WriteLine(String.Format(formatPattern, vehicle.Name.Brand, vehicle.Name.CarModel, vehicle.Name.CarType));
-                if (vehicle.RowdyFactor != null)
-                {
-                    Console.WriteLine(String.Format("**Rowdy factor:**\nFrom:{0}\nTo:{1}", vehicle.RowdyFactor.From, vehicle.RowdyFactor.To));
+                    vehicles.Add(vehicle);
+
+                    string formatPattern = "{0}:{1}";
+                    if (!String.IsNullOrEmpty(vehicle.Name.CarType))
+                    {
+                        formatPattern = formatPattern += " ({2})";
+                    }
+                    Console.WriteLine("Vehicle file:" + vehiclePath);
+                    Console.WriteLine(String.Format(formatPattern, vehicle.Name.Brand, vehicle.Name.CarModel, vehicle.Name.CarType));
+                    if (vehicle.RowdyFactor != null)
+                    {
+                        Console.WriteLine(String.Format("**Rowdy factor:**\nFrom:{0}\nTo:{1}", vehicle.RowdyFactor.From, vehicle.RowdyFactor.To));
+                    }
                 }
                 Console.WriteLine("---------------------\n");
             }
+            Console.WriteLine("Total valid vehicles:" + vehicles.Count);
             Console.WriteLine("// type 'edit' to edit  a single vehicle; type 'editall' to set values to all vehicles");
             string option = (Console.ReadLine()).ToLower();
             switch(option)

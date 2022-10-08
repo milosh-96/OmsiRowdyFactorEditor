@@ -9,7 +9,16 @@ namespace RowdyFactor.Processing
         public OmsiVehicle Process(string filePath)
         {
             string[] lines = GetFileContents(filePath);
-            return new OmsiVehicle() { RowdyFactor = GetRowdyFactor(lines),FilePath=filePath};
+            OmsiVehicle vehicle = new OmsiVehicle() { FilePath=filePath};
+            if(GetRowdyFactorIndex(lines) != null)
+            {
+                vehicle.RowdyFactor = GetRowdyFactor(lines);
+            } 
+            else
+            {
+                vehicle.InvalidVehicle = true;
+            }
+            return vehicle;
         }
 
         private OmsiRowdyFactor GetRowdyFactor(string[] lines)
@@ -62,7 +71,8 @@ namespace RowdyFactor.Processing
             int? foundOnIndex = null;
             for (int i = 0; i < lines.Length; i++)
             {
-                if (lines[i].Contains("[rowdy_factor]"))
+                var line = lines[i].Trim();
+                if (line.StartsWith("[rowdy_factor]"))
                 {
                     foundOnIndex = i;
                     break;

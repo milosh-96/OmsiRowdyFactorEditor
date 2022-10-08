@@ -34,18 +34,23 @@ namespace RowdyFactor.WinForms
         {
             vehicles.Clear();
             aiListListView.Items.Clear();
+            openFileDialog1.Title = "Select the AI list (ailists.cfg) file";
             openFileDialog1.InitialDirectory = omsiDirectory + "\\maps";
+            openFileDialog1.FileName = "ailists.cfg";
             if(openFileDialog1.ShowDialog()==DialogResult.OK)
             {
                 string[] fileContents = File.ReadAllLines(openFileDialog1.FileName, Encoding.GetEncoding("iso-8859-1"));
-                List<string> vehiclePaths = AiListsParser.ExtractAiGroup("NormalCars", fileContents);
+                List<string> vehiclePaths = AiListsParser.ExtractAllVehicles(fileContents);
 
 
                 vehiclePaths.ForEach(x =>
                 {
-                    vehicles.Add(new FileHandler().Process(
-                        $"{omsiDirectory}/{x}"
-                        ));
+                    OmsiVehicle vehicle = new OmsiVehicle();
+                    vehicle = new FileHandler().Process($"{omsiDirectory}/{x}");
+                    if (!vehicle.InvalidVehicle)
+                    {
+                        vehicles.Add(vehicle);
+                    }
                 });
 
 
@@ -56,7 +61,9 @@ namespace RowdyFactor.WinForms
                     string filename = Path.GetFileName(x.FilePath);
                     ListViewItem item = new ListViewItem() {
                         Text = $"{x.Name.Brand} {x.Name.CarModel} ({filename})",
-                        Tag = x
+                        Tag = x,
+                        ToolTipText = x.FilePath,
+                        
                     };
                     aiListListView.Items.Add(item);
                 });
@@ -66,8 +73,10 @@ namespace RowdyFactor.WinForms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            folderBrowserDialog1.Description = "Select the main (root) OMSI 2 folder. You should see Omsi.exe, maps, vehicles and some other folders.";
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
+              
                 omsiDirectory = folderBrowserDialog1.SelectedPath;
                 selectAiListFileButton.Enabled = true;
             }

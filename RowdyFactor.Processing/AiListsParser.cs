@@ -36,6 +36,39 @@ namespace RowdyFactor.Processing
             return vehicles;
         }
 
+        public static List<string> ExtractAllVehicles(string[] fileContents)
+        {
+            List<string> vehicles = new List<string>();
+           
+                for (int i = 0; i < fileContents.Length; i++)
+                {
+                    string line = fileContents[i];
+                string vehicleLine = null;
+                    if (line.Contains(".ovh") && line.StartsWith("vehicles",StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        line = line.Substring(0, (line.IndexOf(".ovh") + 4));
+                    vehicleLine = line;
+                    }
+                    else if (line.Contains(".bus") && line.StartsWith("vehicles", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        line = line.Substring(0, (line.IndexOf(".bus") + 4));
+                    vehicleLine = line;
+                }
+                    // Console.WriteLine(line);
+
+                 
+                    if(vehicleLine != null)
+                {
+                    if (!vehicles.Contains(vehicleLine))
+                    {
+                        vehicles.Add(vehicleLine);
+                    }
+                }
+                }
+
+            return vehicles;
+        }
+
         private static int? GetGroupLine(string name, string[] fileContents)
         {
             int index = 0;
