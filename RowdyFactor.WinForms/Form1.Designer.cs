@@ -35,7 +35,6 @@ namespace RowdyFactor.WinForms
             this.editorTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.saveVehicleButton = new System.Windows.Forms.Button();
             this.writeChangesButton = new System.Windows.Forms.Button();
-            this.selectAiListFileButton = new System.Windows.Forms.Button();
             this.rowdyNumberEditorGroupBox = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -43,6 +42,9 @@ namespace RowdyFactor.WinForms
             this.toRowdyNumberLabel = new System.Windows.Forms.Label();
             this.fromRowdyNumberInput = new System.Windows.Forms.NumericUpDown();
             this.fromRowdyNumberLabel = new System.Windows.Forms.Label();
+            this.selectAiListFileButton = new System.Windows.Forms.Button();
+            this.currentOmsiDirectoryLabel = new System.Windows.Forms.Label();
+            this.selectChangeOmsiDirButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.tableLayoutPanel1.SuspendLayout();
@@ -61,13 +63,16 @@ namespace RowdyFactor.WinForms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
             this.tableLayoutPanel1.Controls.Add(this.aiListListView, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.editorTableLayout, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.currentOmsiDirectoryLabel, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.selectChangeOmsiDirButton, 0, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(760, 537);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(760, 600);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // aiListListView
@@ -78,7 +83,7 @@ namespace RowdyFactor.WinForms
             this.aiListListView.Location = new System.Drawing.Point(3, 3);
             this.aiListListView.Name = "aiListListView";
             this.tableLayoutPanel1.SetRowSpan(this.aiListListView, 2);
-            this.aiListListView.Size = new System.Drawing.Size(279, 531);
+            this.aiListListView.Size = new System.Drawing.Size(279, 534);
             this.aiListListView.TabIndex = 0;
             this.aiListListView.UseCompatibleStateImageBehavior = false;
             this.aiListListView.View = System.Windows.Forms.View.Details;
@@ -96,8 +101,8 @@ namespace RowdyFactor.WinForms
             this.editorTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.editorTableLayout.Controls.Add(this.saveVehicleButton, 0, 2);
             this.editorTableLayout.Controls.Add(this.writeChangesButton, 0, 0);
-            this.editorTableLayout.Controls.Add(this.selectAiListFileButton, 1, 0);
             this.editorTableLayout.Controls.Add(this.rowdyNumberEditorGroupBox, 1, 1);
+            this.editorTableLayout.Controls.Add(this.selectAiListFileButton, 1, 0);
             this.editorTableLayout.Location = new System.Drawing.Point(288, 3);
             this.editorTableLayout.Name = "editorTableLayout";
             this.editorTableLayout.RowCount = 3;
@@ -139,27 +144,12 @@ namespace RowdyFactor.WinForms
             this.writeChangesButton.UseVisualStyleBackColor = true;
             this.writeChangesButton.Click += new System.EventHandler(this.writeChangesButton_Click);
             // 
-            // selectAiListFileButton
-            // 
-            this.selectAiListFileButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.selectAiListFileButton.AutoSize = true;
-            this.selectAiListFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.selectAiListFileButton.Location = new System.Drawing.Point(237, 3);
-            this.selectAiListFileButton.Name = "selectAiListFileButton";
-            this.selectAiListFileButton.Size = new System.Drawing.Size(229, 44);
-            this.selectAiListFileButton.TabIndex = 1;
-            this.selectAiListFileButton.Text = "Select AI List File";
-            this.selectAiListFileButton.UseVisualStyleBackColor = true;
-            this.selectAiListFileButton.Click += new System.EventHandler(this.selectAiListFileButton_Click);
-            // 
             // rowdyNumberEditorGroupBox
             // 
             this.rowdyNumberEditorGroupBox.Controls.Add(this.flowLayoutPanel1);
             this.rowdyNumberEditorGroupBox.Location = new System.Drawing.Point(237, 53);
             this.rowdyNumberEditorGroupBox.Name = "rowdyNumberEditorGroupBox";
-            this.rowdyNumberEditorGroupBox.Size = new System.Drawing.Size(229, 401);
+            this.rowdyNumberEditorGroupBox.Size = new System.Drawing.Size(229, 385);
             this.rowdyNumberEditorGroupBox.TabIndex = 6;
             this.rowdyNumberEditorGroupBox.TabStop = false;
             this.rowdyNumberEditorGroupBox.Text = "Rowdy Number Editor";
@@ -170,7 +160,7 @@ namespace RowdyFactor.WinForms
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 19);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(223, 379);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(223, 363);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
             // tableLayoutPanel2
@@ -274,6 +264,44 @@ namespace RowdyFactor.WinForms
             this.fromRowdyNumberLabel.Text = "From:";
             this.fromRowdyNumberLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // selectAiListFileButton
+            // 
+            this.selectAiListFileButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.selectAiListFileButton.AutoSize = true;
+            this.selectAiListFileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.selectAiListFileButton.Location = new System.Drawing.Point(237, 3);
+            this.selectAiListFileButton.Name = "selectAiListFileButton";
+            this.selectAiListFileButton.Size = new System.Drawing.Size(229, 44);
+            this.selectAiListFileButton.TabIndex = 1;
+            this.selectAiListFileButton.Text = "Select AI List File";
+            this.selectAiListFileButton.UseVisualStyleBackColor = true;
+            this.selectAiListFileButton.Click += new System.EventHandler(this.selectAiListFileButton_Click);
+            // 
+            // currentOmsiDirectoryLabel
+            // 
+            this.currentOmsiDirectoryLabel.AutoSize = true;
+            this.currentOmsiDirectoryLabel.Location = new System.Drawing.Point(288, 540);
+            this.currentOmsiDirectoryLabel.Name = "currentOmsiDirectoryLabel";
+            this.currentOmsiDirectoryLabel.Size = new System.Drawing.Size(183, 15);
+            this.currentOmsiDirectoryLabel.TabIndex = 7;
+            this.currentOmsiDirectoryLabel.Text = "OMSI 2 main folder isn\'t selected!";
+            // 
+            // selectChangeOmsiDirButton
+            // 
+            this.selectChangeOmsiDirButton.AutoSize = true;
+            this.selectChangeOmsiDirButton.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.selectChangeOmsiDirButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.selectChangeOmsiDirButton.Location = new System.Drawing.Point(3, 543);
+            this.selectChangeOmsiDirButton.Name = "selectChangeOmsiDirButton";
+            this.selectChangeOmsiDirButton.Size = new System.Drawing.Size(279, 25);
+            this.selectChangeOmsiDirButton.TabIndex = 7;
+            this.selectChangeOmsiDirButton.Text = "Select/Change Main Folder OMSI ";
+            this.selectChangeOmsiDirButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.selectChangeOmsiDirButton.UseVisualStyleBackColor = true;
+            this.selectChangeOmsiDirButton.Click += new System.EventHandler(this.selectChangeOmsiDirButton_Click);
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "ailists.cfg";
@@ -283,13 +311,14 @@ namespace RowdyFactor.WinForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(784, 591);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rowdy Factor Editor for OMSI 2";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.editorTableLayout.ResumeLayout(false);
             this.editorTableLayout.PerformLayout();
             this.rowdyNumberEditorGroupBox.ResumeLayout(false);
@@ -312,7 +341,6 @@ namespace RowdyFactor.WinForms
         private System.Windows.Forms.Button selectAiListFileButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.Button saveVehicleButton;
         private System.Windows.Forms.GroupBox rowdyNumberEditorGroupBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label fromRowdyNumberLabel;
@@ -320,6 +348,9 @@ namespace RowdyFactor.WinForms
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.NumericUpDown toRowdyNumberInput;
         private System.Windows.Forms.Label toRowdyNumberLabel;
+        private System.Windows.Forms.Label currentOmsiDirectoryLabel;
+        private System.Windows.Forms.Button selectChangeOmsiDirButton;
+        private System.Windows.Forms.Button saveVehicleButton;
     }
 }
 

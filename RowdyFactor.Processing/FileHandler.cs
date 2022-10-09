@@ -9,22 +9,20 @@ namespace RowdyFactor.Processing
         public OmsiVehicle Process(string filePath)
         {
             string[] lines = GetFileContents(filePath);
-            OmsiVehicle vehicle = new OmsiVehicle() { FilePath=filePath};
-            if(GetRowdyFactorIndex(lines) != null)
+            OmsiVehicle vehicle = new OmsiVehicle() { FilePath=filePath,InvalidVehicle = true};
+            if(lines != null)
             {
-                OmsiRowdyFactor rowdyFactor = GetRowdyFactor(lines);
-                if (rowdyFactor != null)
+                if (GetRowdyFactorIndex(lines) != null)
                 {
-                    vehicle.RowdyFactor = GetRowdyFactor(lines);
+                    OmsiRowdyFactor rowdyFactor = GetRowdyFactor(lines);
+                    if (rowdyFactor != null)
+                    {
+                        vehicle.RowdyFactor = GetRowdyFactor(lines);
+                        vehicle.InvalidVehicle = false;
+
+                    }
+
                 }
-                else
-                {
-                    vehicle.InvalidVehicle = true;
-                }
-            } 
-            else
-            {
-                vehicle.InvalidVehicle = true;
             }
             return vehicle;
         }
@@ -91,7 +89,15 @@ namespace RowdyFactor.Processing
 
         private string[] GetFileContents(string filePath)
         {
-            string[] lines = System.IO.File.ReadAllLines(filePath,System.Text.Encoding.GetEncoding("iso-8859-1"));
+            string[] lines = null;
+            try
+            {
+                lines = System.IO.File.ReadAllLines(filePath, System.Text.Encoding.GetEncoding("iso-8859-1"));
+            }
+            catch(Exception e)
+            {
+             
+            }
             return lines;
         }
     }

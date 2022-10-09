@@ -16,6 +16,14 @@ namespace RowdyFactor.WinForms
 {
     public partial class MainForm : Form
     {
+        private int bufferCount;
+
+        public int BufferCount
+        {
+            get { return bufferCount; }
+            set { bufferCount = value;if (value > 0) { writeChangesButton.Enabled = true;this.Refresh(); } else { writeChangesButton.Enabled = false;this.Refresh(); } }
+        }
+
         string omsiDirectory = null;
         List<OmsiVehicle> vehicles = new List<OmsiVehicle>();
         int currentVehicleIndex;
@@ -25,6 +33,7 @@ namespace RowdyFactor.WinForms
             InitializeComponent();
             writeChangesButton.Enabled = false;
             selectAiListFileButton.Enabled = false;
+            saveVehicleButton.Enabled = false;
             rowdyNumberEditorGroupBox.Hide();
            
            
@@ -39,6 +48,7 @@ namespace RowdyFactor.WinForms
             openFileDialog1.FileName = "ailists.cfg";
             if(openFileDialog1.ShowDialog()==DialogResult.OK)
             {
+                saveVehicleButton.Enabled = true;
                 string[] fileContents = File.ReadAllLines(openFileDialog1.FileName, Encoding.GetEncoding("iso-8859-1"));
                 List<string> vehiclePaths = AiListsParser.ExtractAllVehicles(fileContents);
 
@@ -73,12 +83,25 @@ namespace RowdyFactor.WinForms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            SelectOmsiFolderDialog();
+        }
+
+        private void SelectOmsiFolderDialog()
+        {
             folderBrowserDialog1.Description = "Select the main (root) OMSI 2 folder. You should see Omsi.exe, maps, vehicles and some other folders.";
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
-              
+
                 omsiDirectory = folderBrowserDialog1.SelectedPath;
+                currentOmsiDirectoryLabel.Text = omsiDirectory;
                 selectAiListFileButton.Enabled = true;
+                selectChangeOmsiDirButton.Visible = false;
+            }
+            else
+            {
+                omsiDirectory = null;
+                currentOmsiDirectoryLabel.Text = omsiDirectory ?? "OMSI 2 main folder isn't selected!";
+                MessageBox.Show("The Folder isn't selected!");
             }
         }
 
@@ -107,6 +130,7 @@ namespace RowdyFactor.WinForms
             vehicles[currentVehicleIndex].RowdyFactor.To = (double)toRowdyNumberInput.Value;
             vehicles[currentVehicleIndex].RowdyFactor.Modified = true;
             writeChangesButton.Enabled = true;
+            bufferCount++;
         }
 
         private void writeChangesButton_Click(object sender, EventArgs e)
@@ -116,9 +140,16 @@ namespace RowdyFactor.WinForms
                 if (vehicle.RowdyFactor != null && vehicle.RowdyFactor.Modified)
                 {
                     new FileHandler().WriteRowdyFactor(vehicle);
+                    vehicle.RowdyFactor.Modified = false;
                 }
             }
             MessageBox.Show("Done");
+            writeChangesButton.Enabled = false;
+        }
+
+        private void selectChangeOmsiDirButton_Click(object sender, EventArgs e)
+        {
+            SelectOmsiFolderDialog();
         }
     }
 }
