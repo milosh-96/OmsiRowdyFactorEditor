@@ -27,25 +27,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\quest\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\hp\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\quest\\source\\repos\\RowdyFactor\\RowdyFactor.Console\\RowdyFactor.ConsoleApp.csproj",
+      "projectUniqueName": "C:\\Users\\hp\\source\\repos\\milosh-96\\OmsiRowdyFactorEditor\\RowdyFactor.Console\\RowdyFactor.ConsoleApp.csproj",
       "projectName": "RowdyFactor.ConsoleApp",
-      "projectPath": "C:\\Users\\quest\\source\\repos\\RowdyFactor\\RowdyFactor.Console\\RowdyFactor.ConsoleApp.csproj",
-      "packagesPath": "C:\\Users\\quest\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\quest\\source\\repos\\RowdyFactor\\RowdyFactor.Console\\obj\\",
+      "projectPath": "C:\\Users\\hp\\source\\repos\\milosh-96\\OmsiRowdyFactorEditor\\RowdyFactor.Console\\RowdyFactor.ConsoleApp.csproj",
+      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hp\\source\\repos\\milosh-96\\OmsiRowdyFactorEditor\\RowdyFactor.Console\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\quest\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -54,14 +52,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://feed.peachpie.io/wpdotnet/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\quest\\source\\repos\\RowdyFactor\\RowdyFactor.Processing\\RowdyFactor.Processing.csproj": {
-              "projectPath": "C:\\Users\\quest\\source\\repos\\RowdyFactor\\RowdyFactor.Processing\\RowdyFactor.Processing.csproj"
+            "C:\\Users\\hp\\source\\repos\\milosh-96\\OmsiRowdyFactorEditor\\RowdyFactor.Processing\\RowdyFactor.Processing.csproj": {
+              "projectPath": "C:\\Users\\hp\\source\\repos\\milosh-96\\OmsiRowdyFactorEditor\\RowdyFactor.Processing\\RowdyFactor.Processing.csproj"
             }
           }
         }
@@ -81,7 +80,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -90,7 +90,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

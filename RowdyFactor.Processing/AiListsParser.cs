@@ -6,6 +6,7 @@ namespace RowdyFactor.Processing
 {
     public class AiListsParser
     {
+        // extract list of vehicles (.ovh, .bus) from an ai group in the ailists.cfg //
         public static List<string> ExtractAiGroup(string name, string[] fileContents)
         {
             List<string> vehicles = new List<string>();
@@ -16,6 +17,12 @@ namespace RowdyFactor.Processing
                 for (int i = (groupLineNumber.Value+2); i < fileContents.Length; i++)
                 {
                     string line = fileContents[i];
+
+                    if (fileContents[i] == "[end]")
+                    {
+                        break;
+                    }
+
                     if (line.Contains(".ovh"))
                     {
                         line = line.Substring(0, (line.IndexOf(".ovh") + 4));
@@ -23,12 +30,13 @@ namespace RowdyFactor.Processing
                     else if(line.Contains(".bus")) {
                         line = line.Substring(0, (line.IndexOf(".bus") + 4));
                     }
+                    else
+                    {
+                        continue;
+                    }
                    // Console.WriteLine(line);
                    
-                    if(fileContents[i]=="[end]")
-                    {
-                        break;
-                    }
+                    
                     vehicles.Add(line);
                 }
                
