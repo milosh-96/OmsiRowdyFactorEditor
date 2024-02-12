@@ -44,7 +44,7 @@ namespace RowdyFactor.Tests
 
             // Assert
             Assert.Equal(6,returnedVehicles.Count);
-            //Assert.True(returnedVehicles.Any(x => x.Contains(".ovh") || x.Contains(".bus")),"Vehicles are only those with .ovh or .bus extensions.");
+            Assert.True(returnedVehicles.Any(x => x.Contains(".ovh") || x.Contains(".bus")), "Vehicles are only those with .ovh or .bus extensions.");
         }
 
         [Fact]
@@ -59,7 +59,7 @@ namespace RowdyFactor.Tests
 
             // Assert
             Assert.Equal(9, returnedVehicles.Count);
-            //Assert.True(returnedVehicles.Any(x => x.Contains(".ovh") || x.Contains(".bus")),"Vehicles are only those with .ovh or .bus extensions.");
+            Assert.True(returnedVehicles.Any(x => x.Contains(".ovh") || x.Contains(".bus")), "Vehicles are only those with .ovh or .bus extensions.");
         }
 
     }
