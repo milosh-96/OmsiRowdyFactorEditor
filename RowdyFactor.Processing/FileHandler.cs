@@ -34,13 +34,9 @@ namespace RowdyFactor.Processing
             {
                 try
                 {
-                    //read next two lines after the rowdy factor line, the first one is from value, the second one is to value //
-                    double rowdyFactorFrom = double.Parse(lines[(foundOnIndex.Value + 1)]); 
-                    double rowdyFactorTo = double.Parse(lines[(foundOnIndex.Value + 2)]);
-
-                    return new OmsiRowdyFactor(rowdyFactorFrom, rowdyFactorTo);
+                    return CreateRowdyFactor(lines, foundOnIndex.Value);
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     Console.WriteLine("Could not parse from & to values from the rowdy factor block");
                 }
@@ -48,6 +44,23 @@ namespace RowdyFactor.Processing
             return null;
 
 
+        }
+
+        public OmsiRowdyFactor CreateRowdyFactor(string[] lines, int attributeIndex)
+        {
+            if(lines == null)
+            {
+                throw new ArgumentException("no lines", "lines");
+            }
+            else if(lines.Length < (attributeIndex+1) + 2)
+            {
+                throw new ArgumentException("not enough lines to work with", "lines");
+            }
+            //read next two lines after the rowdy factor line, the first one is from value, the second one is to value //
+            double rowdyFactorFrom = double.Parse(lines[(attributeIndex + 1)]);
+            double rowdyFactorTo = double.Parse(lines[(attributeIndex + 2)]);
+
+            return new OmsiRowdyFactor(rowdyFactorFrom, rowdyFactorTo);
         }
 
         public void WriteRowdyFactor(OmsiVehicle vehicle)
@@ -90,14 +103,7 @@ namespace RowdyFactor.Processing
         private string[] GetFileContents(string filePath)
         {
             string[] lines = null;
-            try
-            {
-                lines = System.IO.File.ReadAllLines(filePath, System.Text.Encoding.GetEncoding("iso-8859-1"));
-            }
-            catch(Exception e)
-            {
-             
-            }
+            lines = System.IO.File.ReadAllLines(filePath, System.Text.Encoding.GetEncoding("iso-8859-1"));           
             return lines;
         }
     }
