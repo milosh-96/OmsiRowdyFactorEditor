@@ -23,7 +23,7 @@ namespace RowdyFactor.Processing
             }
             catch(Exception e)
             {
-                Console.WriteLine("could set new values");
+                Console.WriteLine("could not set new values");
             }
             return null;
         } 
